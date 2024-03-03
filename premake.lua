@@ -1,9 +1,9 @@
 project "yaml-cpp"
-  kind "Staticlib"
+  kind "StaticLib"
   language "C++"
 
-  targetdir("bin/" .. outputdir .. "/%(prj.name)")
-  objdir("bin-int/" .. outputdir .. "/%(prj.name)")
+  targetdir("bin/" .. outputdir .. "/%{prj.name}")
+  objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
 files
 {
@@ -19,3 +19,14 @@ includedirs
 }
 
 
+filter "system:windows"
+systemversion "latest"
+
+
+filter "configurations:Debug"
+runtime "Debug"
+symbols "On"
+
+filter "configurations:Release"
+runtime "Release"
+optimize "On"
