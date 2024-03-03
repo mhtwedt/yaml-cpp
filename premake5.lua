@@ -5,6 +5,7 @@ project "yaml-cpp"
   targetdir("bin/" .. outputdir .. "/%{prj.name}")
   objdir("bin-int/" .. outputdir .. "/%{prj.name}")
 
+
 files
 {
     "src/**.h",
@@ -20,13 +21,21 @@ includedirs
 
 
 filter "system:windows"
+defines "YAML_CPP_STATIC_DEFINE"
 systemversion "latest"
+cppdialect "C++20"
+staticruntime "On"
 
+filter "system:linux"
+pic "On"
+systemversion "latest"
+cppdialect "C++20"
+staticruntime "On"
 
 filter "configurations:Debug"
 runtime "Debug"
-symbols "On"
+symbols "on"
 
 filter "configurations:Release"
 runtime "Release"
-optimize "On"
+optimize "on"
