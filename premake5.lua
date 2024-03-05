@@ -19,9 +19,13 @@ includedirs
   "include"
 }
 
+defines
+{
+  "YAML_CPP_STATIC_DEFINE"
+}
+
 
 filter "system:windows"
-defines "YAML_CPP_STATIC_DEFINE"
 systemversion "latest"
 cppdialect "C++20"
 staticruntime "On"
